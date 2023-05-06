@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import {useState} from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -7,6 +8,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import KeyOutlinedIcon from '@mui/icons-material/KeyOutlined';
+import Snackbar from '@mui/material/Snackbar';
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -36,7 +38,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
+const[open, setOpen] = useState(false);
   const handleSignUp = (event)=>{
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -44,9 +46,13 @@ const app = initializeApp(firebaseConfig);
     let password = data.get('password');
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
-    .then(userCredential=>console.log(userCredential.user))
+    .then(setOpen(true))
     .catch(error=>console.log(error))  
   }
+  
+  const handleClose = () => {
+    setOpen(false);
+  };
   return(
 <>
       <Head>
@@ -90,6 +96,12 @@ const app = initializeApp(firebaseConfig);
       <TextField id="email" name='email' label="Email" variant="outlined" type="email" required fullWidth sx={{mb:2}} />
       <TextField id="password" name='password' label="Password" type="password" variant="outlined" required fullWidth />
       <Button type='submit' variant='contained' sx={{mt:1}} fullWidth >Sign up</Button>
+          <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        message="Successfully created user!"
+        onClose={handleClose}
+      />
       </Box>
       </Container>
     </>
