@@ -7,7 +7,46 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import KeyOutlinedIcon from '@mui/icons-material/KeyOutlined';
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+
+
+
+
 export default function Home(){
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyAElwg1iJK0SrIj3UAfXr1wzCahaq1AGF4",
+
+  authDomain: "sample-landing-page-82a2c.firebaseapp.com",
+
+  projectId: "sample-landing-page-82a2c",
+
+  storageBucket: "sample-landing-page-82a2c.appspot.com",
+
+  messagingSenderId: "457547769095",
+
+  appId: "1:457547769095:web:bbd63a382958d21d4f11a2",
+
+  measurementId: "G-PB0MKZ9K9S"
+
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+  const handleSignUp = (event)=>{
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    let email = data.get('email');
+    let password = data.get('password');
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+    .then(userCredential=>console.log(userCredential.user))
+    .catch(error=>console.log(error))  
+  }
   return(
 <>
       <Head>
@@ -34,7 +73,7 @@ export default function Home(){
           Simple Landing on Next Js and Material
           </Typography>
         </Box>
-      <Box
+      <Box component="form" onSubmit={handleSignUp}
         sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -48,9 +87,9 @@ export default function Home(){
           <Typography component="h2" variant='h5' sx={{mb:2}}>
           Log In
           </Typography>
-      <TextField id="username" label="Username" variant="outlined" required fullWidth sx={{mb:2}} />
-      <TextField id="password" label="Password" type="password" variant="outlined" required fullWidth />
-      <Button variant='contained' sx={{mt:1}} fullWidth >Log In</Button>
+      <TextField id="email" name='email' label="Email" variant="outlined" type="email" required fullWidth sx={{mb:2}} />
+      <TextField id="password" name='password' label="Password" type="password" variant="outlined" required fullWidth />
+      <Button type='submit' variant='contained' sx={{mt:1}} fullWidth >Sign up</Button>
       </Box>
       </Container>
     </>
