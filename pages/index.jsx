@@ -46,7 +46,7 @@ const[open, setOpen] = useState(false);
     let password = data.get('password');
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
-    .then(setOpen(true))
+    .then(userCredential=>console.log(userCredential.user))
     .catch(error=>console.log(error))  
   }
   
