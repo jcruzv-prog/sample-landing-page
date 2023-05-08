@@ -48,15 +48,16 @@ const[message, setMessage] = ("");
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
     .then(userCredential=>{
-          setMessage("Successfully created user!")
-          setOpen(true)})
+          setMessage("Successfully created user!");
+          setOpen(true);
+      })
     .catch(error=>{
         if(error.code=='auth/email-already-in-use'){
-          setMessage('Error: Email already exists')
+          setMessage('Error: Email already exists');
           setOpen(true);
         }
         else{
-          setMessage('Error: Error creating the account')
+          setMessage('Error creating the account');
           setOpen(true);
         }
       })
@@ -111,7 +112,7 @@ const[message, setMessage] = ("");
           <Snackbar
         open={open}
         autoHideDuration={6000}
-        message="Successfully created user!"
+        message={message}
         onClose={handleClose}
       />
       </Box>
