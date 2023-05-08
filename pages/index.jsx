@@ -50,7 +50,16 @@ const[message, setMessage] = ("");
     .then(_=>{
           setMessage("Successfully created user!")
           setOpen(true)})
-    .catch(error=>console.log(`Code:${error.code} Message:${error.message}`))  
+    .catch(error=>{
+        if(error.code=='auth/email-already-in-use'){
+          setMessage(' Error: Email already exists')
+          setOpen(true);
+        }
+        else{
+          setMessage(' Error: Error creating the account')
+          setOpen(true);
+        }
+      })
   }
   
   const handleClose = () => {
