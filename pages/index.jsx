@@ -39,7 +39,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const[open, setOpen] = useState(false);
-const[message, setMessage] = ("");   
+const[message, setMessage] = useState("");   
   const handleSignUp = (event)=>{
     event.preventDefault();
     const data = new FormData(event.currentTarget);
