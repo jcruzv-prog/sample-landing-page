@@ -39,6 +39,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const[open, setOpen] = useState(false);
+const[message, setMessage] = ("");   
   const handleSignUp = (event)=>{
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -46,8 +47,10 @@ const[open, setOpen] = useState(false);
     let password = data.get('password');
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
-    .then(userCredential=>console.log("Dentro del then"))
-    .catch(error=>console.log(error))  
+    .then(_=>{
+          setMessage("Successfully created user!")
+          setOpen(true)})
+    .catch(error=>console.log(`Code:${error.code} Message:${error.message}`))  
   }
   
   const handleClose = () => {
