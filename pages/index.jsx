@@ -47,16 +47,16 @@ const[message, setMessage] = ("");
     let password = data.get('password');
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
-    .then(_=>{
+    .then(userCredential=>{
           setMessage("Successfully created user!")
           setOpen(true)})
     .catch(error=>{
         if(error.code=='auth/email-already-in-use'){
-          setMessage(' Error: Email already exists')
+          setMessage('Error: Email already exists')
           setOpen(true);
         }
         else{
-          setMessage(' Error: Error creating the account')
+          setMessage('Error: Error creating the account')
           setOpen(true);
         }
       })
