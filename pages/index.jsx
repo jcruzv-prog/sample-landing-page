@@ -41,8 +41,8 @@ const app = initializeApp(firebaseConfig);
 const[open, setOpen] = useState(false);
 const[message, setMessage] = useState("");   
 const[verified, setVerified] = useState(false); 
-const[email, setEmail] = ('');
-const[password, setPassword] = ('');
+const[email, setEmail] = useState('');
+const[password, setPassword] = useState('');
   const handleSignUp = (event)=>{
     event.preventDefault();
     const data = new FormData(event.currentTarget);
