@@ -41,11 +41,13 @@ const app = initializeApp(firebaseConfig);
 const[open, setOpen] = useState(false);
 const[message, setMessage] = useState("");   
 const[verified, setVerified] = useState(false); 
+const[email, setEmail] = ('');
+const[password, setPassword] = ('');
   const handleSignUp = (event)=>{
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    let email = data.get('email');
-    let password = data.get('password');
+    setEmail(data.get('email'));
+    setPassword(data.get('password'));
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
     .then(userCredential=>{
