@@ -10,8 +10,8 @@ import Avatar from '@mui/material/Avatar';
 import KeyOutlinedIcon from '@mui/icons-material/KeyOutlined';
 import Snackbar from '@mui/material/Snackbar';
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import Authenticated from './authenticated';
 
 
 
@@ -40,6 +40,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const[open, setOpen] = useState(false);
 const[message, setMessage] = useState("");   
+const[verified, setVerified] = useState(false); 
   const handleSignUp = (event)=>{
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -66,7 +67,15 @@ const[message, setMessage] = useState("");
   const handleClose = () => {
     setOpen(false);
   };
-  return(
+  const handleSignIn = () =>{
+    signInWithEmailAndPassword(email, password)
+    .then(userCredential=>{
+      if(userCredential)
+      setVerified(true);
+    })
+  }
+  if(!verified)
+  return (
 <>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -108,15 +117,30 @@ const[message, setMessage] = useState("");
           </Typography>
       <TextField id="email" name='email' label="Email" variant="outlined" type="email" required fullWidth sx={{mb:2}} />
       <TextField id="password" name='password' label="Password" type="password" variant="outlined" required fullWidth />
-      <Button type='submit' variant='contained' sx={{mt:1}} fullWidth >Sign up</Button>
+      <Box
+        sx={{
+          display:'flex',
+          justifyContent:'space-between',
+          width:'100%'
+        }}
+      
+      >
+      <Button type='submit' variant='contained' sx={{mt:1, mr:2, whiteSpace:'nowrap'}} fullWidth >Sign up</Button>
+      <Button  variant='contained' sx={{mt:1, whiteSpace:'nowrap'}} fullWidth   onClick={handleSignIn}>Sign in</Button>
+      </Box>
           <Snackbar
         open={open}
         autoHideDuration={6000}
         message={message}
         onClose={handleClose}
       />
+     <div>
+      <h1></h1>
+     </div> 
       </Box>
       </Container>
     </>
-  );
+  )
+  else
+  return <Authenticated />
 }
