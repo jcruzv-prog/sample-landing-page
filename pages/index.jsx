@@ -70,7 +70,7 @@ const[password, setPassword] = useState('');
     setOpen(false);
   };
   const handleSignIn = () =>{
-    signInWithEmailAndPassword(email, password)
+    signInWithEmailAndPassword(auth, email, password)
     .then(userCredential=>{
       if(userCredential)
       setVerified(true);
