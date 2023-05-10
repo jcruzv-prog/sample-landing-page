@@ -15,8 +15,6 @@ import Authenticated from './authenticated';
 
 
 
-export default function Home(){
-
 const firebaseConfig = {
 
   apiKey: "AIzaSyAElwg1iJK0SrIj3UAfXr1wzCahaq1AGF4",
@@ -34,9 +32,9 @@ const firebaseConfig = {
   measurementId: "G-PB0MKZ9K9S"
 
 };
-
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+export default function Home(){
 const[open, setOpen] = useState(false);
 const[message, setMessage] = useState("");   
 const[verified, setVerified] = useState(false); 
