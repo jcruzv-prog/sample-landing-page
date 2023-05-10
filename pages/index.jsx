@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import Head from 'next/head'; 
 import {useState} from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -70,6 +70,7 @@ const[password, setPassword] = useState('');
     setOpen(false);
   };
   const handleSignIn = () =>{
+    const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
     .then(userCredential=>{
       if(userCredential)
