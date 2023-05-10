@@ -15,7 +15,6 @@ import Authenticated from './authenticated';
 
 
 
-
 export default function Home(){
 
 const firebaseConfig = {
