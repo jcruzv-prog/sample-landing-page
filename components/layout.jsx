@@ -7,6 +7,7 @@ import Avatar from '@mui/material/Avatar';
 import { AppBar , Toolbar, IconButton} from '@mui/material';
 import {Menu as MenuIcon} from '@mui/icons-material';
 import TopBar from './topbar'; 
+import LeftBar from './leftbar';
 export default function Layout({children}){
 
   return (
@@ -16,9 +17,12 @@ export default function Layout({children}){
        <title>Dashboard</title> 
       </Head>
 <TopBar />
+<Box sx={{display:'flex'}}>
+<LeftBar />
 <Container>
 {children}
 </Container>
+</Box >
 </>
   )
 }
