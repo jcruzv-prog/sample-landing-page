@@ -22,7 +22,7 @@ export default function Layout({children}){
 <Container>
 {children}
 </Container>
-</Box >
+</Box>
 </>
   )
 }
