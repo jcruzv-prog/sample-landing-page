@@ -19,7 +19,7 @@ setVisible(visible=>!visible);
             <IconButton>
               <MenuIcon />
             </IconButton>
-            <Typography component ="h1" variant="h5" sx={{ml:2, flexGrow:1}} noWrap>Amazing Store Products</Typography>
+            <Typography component ="h1" variant="h5" sx={{ml:2, flexGrow:1}} noWrap>Amazing Store</Typography>
             {visible && <Input  variant="standard" size="medium" disableUnderline sx={{backgroundColor:'whitesmoke', borderRadius:5, pl:2}} />}
             <IconButton size="large" color="inherit" onClick={handleClick}>
             <SearchIcon />
