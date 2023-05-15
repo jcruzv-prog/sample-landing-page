@@ -8,10 +8,11 @@ import { AppBar , Toolbar, IconButton} from '@mui/material';
 import {Menu as MenuIcon} from '@mui/icons-material';
 import TopBar from './topbar'; 
 import LeftBar from './leftbar';
+import Link from '@mui/material/Link';
 export default function Layout({children}){
 
   return (
-    <>
+    <div>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
        <title>Dashboard</title> 
@@ -23,6 +24,6 @@ export default function Layout({children}){
 {children}
 </Container>
 </Box>
-</>
+</div>
   )
 }
