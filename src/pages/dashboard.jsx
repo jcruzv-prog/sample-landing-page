@@ -12,6 +12,7 @@ import StarsIcon from '@mui/icons-material/Stars';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import CardMedia from '@mui/material/CardMedia';
 export default function DashBoard(){
 
   return( 
@@ -25,6 +26,7 @@ export default function DashBoard(){
         </Avatar>
       }>
       </CardHeader>
+      <CardMedia component="img" image='/laptop.jpg' alt="High rated product"  height={240}></CardMedia>
     </Card>
     <Card elevation={4}>
       <CardHeader title='Shop Deals' avatar={
@@ -32,6 +34,7 @@ export default function DashBoard(){
           <LocalOfferIcon />
         </Avatar>
       }></CardHeader>
+      <CardMedia component="img" image='/deals.jpg' height={250} alt="Shop Deal"></CardMedia>
     </Card>
     <Card elevation={4}>
       <CardHeader title='Best Sellers' avatar={
@@ -39,6 +42,7 @@ export default function DashBoard(){
           <TrendingUpIcon/>
         </Avatar>
       }></CardHeader>
+      <CardMedia component="img" image='/best_sell.jpg' height={250} alt="Shop Deal"></CardMedia>
     </Card>
     </Box>
     </Layout>

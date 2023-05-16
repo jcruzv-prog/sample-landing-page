@@ -6,6 +6,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Input from '@mui/material/Input';
 import { useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
+import Collapse from '@mui/material/Collapse';
 export default function TopBar(){
   const[visible, setVisible] = useState(false);
   const handleClick =() =>{
@@ -15,12 +16,17 @@ setVisible(visible=>!visible);
        <Box sx={{display:'flex' }}>
       <CssBaseline />
         <AppBar position='static' sx={{borderRadius:2}}>
-          <Toolbar>
-            <IconButton>
+          <Toolbar sx={{justifyContent:'space-between'}}>
+          <Box sx={{display:'flex', alignItems:'center'}}>
+            <IconButton >
               <MenuIcon />
             </IconButton>
-            <Typography component ="h1" variant="h5" sx={{ml:2, flexGrow:1}} noWrap>Amazing Store</Typography>
-            {visible && <Input  variant="standard" size="medium" disableUnderline sx={{backgroundColor:'whitesmoke', borderRadius:5, pl:2}} />}
+            <Typography component ="h1" variant="h5" sx={{ml:2 }} noWrap>Amazing Store</Typography>
+            </Box>
+            <Box sx={{display:'flex',  alignItems:'center', justifyContent:'flex-end'}}>
+            <Collapse orientation="horizontal" in={visible}   timeout={1000}  > 
+            <Input  variant="standard" size="small" disableUnderline sx={{backgroundColor:'whitesmoke', borderRadius:5, pl:2,  mr:1,}}  />
+            </Collapse>
             <IconButton size="large" color="inherit" onClick={handleClick}>
             <SearchIcon />
             </IconButton>
@@ -37,6 +43,7 @@ setVisible(visible=>!visible);
               >
                 <AccountCircle />
               </IconButton>
+              </Box>
               </Toolbar>
 
         </AppBar>
