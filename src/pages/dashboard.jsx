@@ -1,5 +1,6 @@
 
 import Head from 'next/head'; 
+import {data }from '../../lib/data';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -13,11 +14,13 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import CardMedia from '@mui/material/CardMedia';
+import AssessmentIcon from '@mui/icons-material/Assessment';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 export default function DashBoard(){
 
   return( 
     <Layout >
-    <Typography component="h1" variant='h4' sx={{mb:2}}>Shop Overview</Typography>
+    <Typography component="h1" variant='h4' sx={{mb:2, mt:2}}>Shop Overview</Typography>
     <Box sx={{display:'flex', justifyContent:'space-around'}}>
     <Card elevation={4}>
       <CardHeader title='Highly Rated' avatar={
@@ -44,6 +47,30 @@ export default function DashBoard(){
       }></CardHeader>
       <CardMedia component="img" image='/best_sell.jpg' height={250} alt="Shop Deal"></CardMedia>
     </Card>
+    </Box>
+    <Box sx={{mt:10, display:'flex', flexDirection:'column', alignItems:'center'}}>
+      <Card elevation={4}>
+        <CardHeader title="Sales Income" avatar={
+          <Avatar sx={{backgroundColor:'#19A7CE'}}>
+            <AssessmentIcon />
+          </Avatar>
+        }>
+
+        </CardHeader>
+        <LineChart 
+        width={600}
+        height={300}
+        data={data}>
+          <CartesianGrid />
+          <XAxis dataKey="month" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="laptop" stroke="#0A4D68" strokeWidth={3} />
+          <Line type="monotone" dataKey="accessories" stroke="#FF6969" strokeWidth={3}/>
+          <Line type="monotone" dataKey="monitors" stroke="#0B2447" strokeWidth={3}/>
+        </LineChart>
+      </Card>
     </Box>
     </Layout>
   )

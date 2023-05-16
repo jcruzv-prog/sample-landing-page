@@ -4,6 +4,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Input from '@mui/material/Input';
+import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Collapse from '@mui/material/Collapse';
@@ -25,7 +26,7 @@ setVisible(visible=>!visible);
             </Box>
             <Box sx={{display:'flex',  alignItems:'center', justifyContent:'flex-end'}}>
             <Collapse orientation="horizontal" in={visible}   timeout={1000}  > 
-            <Input  variant="standard" size="small" disableUnderline sx={{backgroundColor:'whitesmoke', borderRadius:5, pl:2,  mr:1,}}  />
+            <Input size="small"  disableUnderline sx={{backgroundColor:'white', pl:2, width:250, borderRadius:5}}></Input>
             </Collapse>
             <IconButton size="large" color="inherit" onClick={handleClick}>
             <SearchIcon />
