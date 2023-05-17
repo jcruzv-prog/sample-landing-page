@@ -16,7 +16,7 @@ setVisible(visible=>!visible);
     return (
        <Box sx={{display:'flex' }}>
       <CssBaseline />
-        <AppBar position='static' sx={{borderRadius:2}}>
+        <AppBar  sx={{borderRadius:2}}>
           <Toolbar sx={{justifyContent:'space-between'}}>
           <Box sx={{display:'flex', alignItems:'center'}}>
             <IconButton >
