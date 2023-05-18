@@ -21,7 +21,9 @@ export default function LeftBar({opened, handleTopClick}){
     console.log(opened);
 
     return(
+
         <Drawer anchor='left' open={opened} onClose={handleTopClick}>
+
         <List sx={{display:'flex',flexShrink:1, flexDirection:'column', backgroundColor:'#004e67', ml:1, pl:1, height:'100%'}}>
             <ListItem  disablePadding>
               <ListItemAvatar >
@@ -29,12 +31,16 @@ export default function LeftBar({opened, handleTopClick}){
                  <AccountCircle />
                 </Avatar>
                 </ListItemAvatar>
+
                <ListSubMenuHeader component="h4"
                 disableGutters 
                 sx={{ backgroundColor:'#004e67', color:'#e0f2f1', mt:1, mb:1}}
                 >
                 Account Settings
                 </ListSubMenuHeader>
+
+               <ListSubMenuHeader component="h4" disableGutters sx={{ backgroundColor:'#004e67', color:'#e0f2f1', mt:1, mb:1}}>Account Settings</ListSubMenuHeader>
+
             </ListItem>
             <Divider sx={{backgroundColor:'white'}}/>
             <ListItem>
@@ -88,6 +94,9 @@ export default function LeftBar({opened, handleTopClick}){
             </ListItem>           
             <Divider sx={{backgroundColor:'white'}}/>
         </List>
+
         </Drawer>
+
+
     )
 }
