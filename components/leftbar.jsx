@@ -16,21 +16,29 @@ import { ListItemButton } from '@mui/material';
 import { ListItemIcon } from '@mui/material';
 import MailBoxIcon from '@mui/icons-material/Mail';
 import LockResetIcon from '@mui/icons-material/LockReset';
-export default function LeftBar(){
+import Drawer from '@mui/material/Drawer';
+export default function LeftBar({opened, handleTopClick}){
+    console.log(opened);
+
     return(
-        <Box sx={{display:'flex', backgroundColor:'#004e67', ml:0, mt:0.5, borderRadius:2, pt:2, height:'100vh', width:'400px'}}>
-        <List sx={{display:'flex', flexDirection:'column', width:'100%',ml:1}}>
+        <Drawer anchor='left' open={opened} onClose={handleTopClick}>
+        <List sx={{display:'flex',flexShrink:1, flexDirection:'column', backgroundColor:'#004e67', ml:1, pl:1, height:'100%'}}>
             <ListItem  disablePadding>
               <ListItemAvatar >
                 <Avatar sx={{bgcolor:'primary.main'}} >
                  <AccountCircle />
                 </Avatar>
                 </ListItemAvatar>
-               <ListSubMenuHeader component="h4" disableGutters sx={{fontSize:'1.5em', backgroundColor:'#004e67', color:'#e0f2f1', mt:1, mb:1}}>Account Settings</ListSubMenuHeader>
+               <ListSubMenuHeader component="h4"
+                disableGutters 
+                sx={{ backgroundColor:'#004e67', color:'#e0f2f1', mt:1, mb:1}}
+                >
+                Account Settings
+                </ListSubMenuHeader>
             </ListItem>
             <Divider sx={{backgroundColor:'white'}}/>
             <ListItem>
-            <ListItemButton component='a' >
+            <ListItemButton  >
                 <ListItemIcon >
                     <MailBoxIcon sx={{color:'primary.main'}}/>
                 </ListItemIcon>
@@ -52,7 +60,14 @@ export default function LeftBar(){
                  <AddBusinessIcon/>
                 </Avatar>
                 </ListItemAvatar>
-               <ListSubMenuHeader component="h4" disableGutters sx={{fontSize:'1.5em', backgroundColor:'#004e67', color:'#e0f2f1', mt:1, mb:1}}>Store Settings</ListSubMenuHeader>
+               <ListSubMenuHeader 
+               component="h4"
+                disableGutters
+                 sx={{ backgroundColor:'#004e67', color:'#e0f2f1', mt:1, mb:1}}
+                 >
+                 Store Settings
+                 </ListSubMenuHeader>
+               
             </ListItem>
             <Divider sx={{backgroundColor:'white'}}/>
             <ListItem>
@@ -73,6 +88,6 @@ export default function LeftBar(){
             </ListItem>           
             <Divider sx={{backgroundColor:'white'}}/>
         </List>
-        </Box>
+        </Drawer>
     )
 }

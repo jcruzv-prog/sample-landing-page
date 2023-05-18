@@ -16,38 +16,44 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import CardMedia from '@mui/material/CardMedia';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import Grid from '@mui/material/Grid';
 export default function DashBoard(){
 
   return( 
     <Layout >
-    <Typography component="h1" variant='h4' sx={{mb:2, mt:2}}>Shop Overview</Typography>
-    <Box sx={{display:'flex', justifyContent:'space-around'}}>
-    <Card elevation={4}>
+    <Grid container   direction={"row"} columnSpacing={0} rowSpacing={2} justifyContent="space-around" alignItems="center" sx={{mt:3}}>
+    <Grid item  xs={12} sm={5} xl={3} justifyContent="center" alignItems="center" >
+    <Card elevation={4} >
       <CardHeader title='Highly Rated' avatar={
         <Avatar sx={{backgroundColor:'gold'}}>
           <StarsIcon />
         </Avatar>
       }>
       </CardHeader>
-      <CardMedia component="img" image='/laptop.jpg' alt="High rated product"  height={240}></CardMedia>
+      <CardMedia component="img" image='/laptop.jpg' alt="High rated product"  ></CardMedia>
     </Card>
-    <Card elevation={4}>
+    </Grid>
+    <Grid item xs={12} sm={5} xl={3}>
+    <Card elevation={4} >
       <CardHeader title='Shop Deals' avatar={
         <Avatar sx={{backgroundColor:'#1B9C85'}}>
           <LocalOfferIcon />
         </Avatar>
       }></CardHeader>
-      <CardMedia component="img" image='/deals.jpg' height={250} alt="Shop Deal"></CardMedia>
+      <CardMedia component="img" image='/deals.jpg'  alt="Shop Deal"></CardMedia>
     </Card>
-    <Card elevation={4}>
+    </Grid>
+    <Grid item xs={12} sm={5} xl={3}>
+    <Card elevation={4} >
       <CardHeader title='Best Sellers' avatar={
         <Avatar sx={{backgroundColor:'#FF6969'}}>
           <TrendingUpIcon/>
         </Avatar>
       }></CardHeader>
-      <CardMedia component="img" image='/best_sell.jpg' height={250} alt="Shop Deal"></CardMedia>
+      <CardMedia component="img" image='/best_sell.jpg'  alt="Shop Deal"></CardMedia>
     </Card>
-    </Box>
+    </Grid>
+    </Grid>
     <Box sx={{mt:10, display:'flex', flexDirection:'column', alignItems:'center'}}>
       <Card elevation={4}>
         <CardHeader title="Sales Income" avatar={

@@ -8,18 +8,19 @@ import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Collapse from '@mui/material/Collapse';
-export default function TopBar(){
+export default function TopBar({handleTopClick}){
   const[visible, setVisible] = useState(false);
   const handleClick =() =>{
 setVisible(visible=>!visible);
   }
+
     return (
        <Box sx={{display:'flex' }}>
       <CssBaseline />
-        <AppBar position='static' sx={{borderRadius:2}}>
+        <AppBar  sx={{borderRadius:2}}>
           <Toolbar sx={{justifyContent:'space-between'}}>
           <Box sx={{display:'flex', alignItems:'center'}}>
-            <IconButton >
+            <IconButton onClick={handleTopClick}>
               <MenuIcon />
             </IconButton>
             <Typography component ="h1" variant="h5" sx={{ml:2 }} noWrap>Amazing Store</Typography>
