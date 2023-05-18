@@ -13,7 +13,6 @@ export default function TopBar({handleTopClick}){
   const handleClick =() =>{
 setVisible(visible=>!visible);
   }
-
     return (
        <Box sx={{display:'flex' }}>
       <CssBaseline />
