@@ -11,6 +11,9 @@ import LeftBar from './leftbar';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import { useState } from 'react';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { Drawer } from '@mui/material';
 export default function Layout({children}){
 
   const[opened, setOpened] = useState(false);
@@ -18,6 +21,9 @@ export default function Layout({children}){
   function handleTopClick(){
     setOpened(opened=>!opened);
   }
+
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('lg'));
   return (
     <>
      <div>
@@ -30,12 +36,27 @@ export default function Layout({children}){
       <Grid item xs={12}>
 <TopBar handleTopClick={handleTopClick}/>
 </Grid>
+{ matches?
+<>
 <Grid item xs={4}  >
-<LeftBar  opened={opened} handleTopClick={handleTopClick}/>
+<LeftBar />
 </Grid>
 <Grid item xs={8} md={8}>
 {children}
 </Grid>
+</>
+:
+<>
+<Grid item xs={1}  >
+ <Drawer anchor='left' open={opened} onClose={handleTopClick}>
+<LeftBar />
+</Drawer>
+</Grid>
+<Grid item xs={11} >
+{children}
+</Grid>
+</>
+}
 </Grid>
 </>
   )

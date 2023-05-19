@@ -17,10 +17,9 @@ import { ListItemIcon } from '@mui/material';
 import MailBoxIcon from '@mui/icons-material/Mail';
 import LockResetIcon from '@mui/icons-material/LockReset';
 import Drawer from '@mui/material/Drawer';
-export default function LeftBar({opened, handleTopClick}){
+export default function LeftBar(){
     return(
-        <Drawer anchor='left' open={opened} onClose={handleTopClick}>
-        <List sx={{display:'flex',flexShrink:1, flexDirection:'column', backgroundColor:'#004e67', ml:1, pl:1, height:'100%'}}>
+        <List sx={{display:'flex',flexShrink:1, flexDirection:'column', backgroundColor:'#004e67', pl:1, height:'100%'}}>
             <ListItem  disablePadding>
               <ListItemAvatar >
                 <Avatar sx={{bgcolor:'primary.main'}} >
@@ -74,6 +73,5 @@ export default function LeftBar({opened, handleTopClick}){
             </ListItem>           
             <Divider sx={{backgroundColor:'white'}}/>
         </List>
-        </Drawer>
     )
 }

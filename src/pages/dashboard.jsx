@@ -14,8 +14,10 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import CardMedia from '@mui/material/CardMedia';
 import AssessmentIcon from '@mui/icons-material/Assessment';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import Grid from '@mui/material/Grid';
+import Chart from '../../components/chart';
+
 export default function DashBoard(){
 
   return( 
@@ -58,32 +60,7 @@ export default function DashBoard(){
     </Card>
     </Grid>
     </Grid>
-    <Grid container alignItems={'center'} justifyContent="center" sx={{mt:10}}>
-    <Grid item xs={12} justifyContent="center">
-              <Card elevation={4}>
-        <CardHeader title="Sales Income" avatar={
-          <Avatar sx={{backgroundColor:'#19A7CE'}}>
-            <AssessmentIcon />
-          </Avatar>
-        }>
-
-        </CardHeader>
-        <LineChart 
-        width={800}
-        height={300}
-        data={data}>
-          <CartesianGrid />
-          <XAxis dataKey="month" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="laptop" stroke="#0A4D68" strokeWidth={3} />
-          <Line type="monotone" dataKey="accessories" stroke="#FF6969" strokeWidth={3}/>
-          <Line type="monotone" dataKey="monitors" stroke="#0B2447" strokeWidth={3}/>
-        </LineChart>
-      </Card>
-      </Grid>
-    </Grid>
+    <Chart />
     </Layout>
   )
 }
